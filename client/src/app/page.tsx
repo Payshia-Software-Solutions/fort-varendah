@@ -345,7 +345,7 @@ function CtaBanner() {
         <p className="subheading color-ochre">Your Next Chapter Begins Here</p>
         <div className="divider" />
         <h2 className={`heading-xl color-sand ${styles.ctaHeading}`}>REFINED<br />COMFORT</h2>
-        <p className="body-lg" style={{color:'rgba(242,229,217,0.7)', margin:'1.5rem 0 2.5rem', maxWidth:'500px', margin:'1.5rem auto 2.5rem'}}>
+        <p className="body-lg" style={{color:'rgba(242,229,217,0.7)', maxWidth:'500px', margin:'1.5rem auto 2.5rem'}}>
           Heritage meets modern luxury — a quiet escape in Galle Fort.
         </p>
         <div style={{display:'flex', gap:'1.5rem', justifyContent:'center', flexWrap:'wrap'}}>
