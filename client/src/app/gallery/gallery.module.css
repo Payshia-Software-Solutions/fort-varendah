@@ -1,11 +1,20 @@
 .banner {
   position: relative;
   min-height: 60vh;
-  background: linear-gradient(135deg, #2A3038, #2C3B2E, #1a2118);
+  background-image: url('/images/banners/gallery-banner.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: flex-end;
   padding-bottom: var(--space-lg);
   overflow: hidden;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,22,16,0.95) 0%, rgba(30,42,32,0.4) 60%, transparent 100%);
 }
 
 .bannerOverlay {

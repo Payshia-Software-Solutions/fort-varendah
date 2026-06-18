@@ -6,12 +6,43 @@ import { useReveal } from '@/hooks/useReveal';
 
 /* ---------- Hero ---------- */
 function Hero() {
+  const [currentImg, setCurrentImg] = React.useState(0);
+  const heroImages = [
+    '/images/hero-bg.png',
+    '/images/rooms/verandah-suite.png',
+    '/images/about/galle-fort-hero.png',
+  ];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className={styles.hero}>
-      {/* Background */}
-      <div className={styles.heroBg}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroGrain} />
+      {/* Background Carousel */}
+      {heroImages.map((img, i) => (
+        <div
+          key={img}
+          className={`${styles.heroBg} ${i === currentImg ? styles.heroBgActive : ''}`}
+          style={{ backgroundImage: `url(${img})` }}
+        >
+          <div className={styles.heroOverlay} />
+        </div>
+      ))}
+      <div className={styles.heroGrain} />
+
+      {/* Slider Progress */}
+      <div className={styles.heroSliderProgress}>
+        <div className={styles.heroSliderNumbers}>
+          <span className={styles.heroSliderCurrent}>0{currentImg + 1}</span>
+          <span className={styles.heroSliderTotal}>/ 0{heroImages.length}</span>
+        </div>
+        <div className={styles.heroSliderTrack}>
+          <div key={currentImg} className={styles.heroSliderFill} />
+        </div>
       </div>
 
       {/* Decorative corner lines */}
@@ -35,13 +66,7 @@ function Hero() {
 
         {/* Title */}
         <div className={styles.heroTitle}>
-          <span className={styles.heroTitleFort}>FORT</span>
-          <div className={styles.heroTitleDividerWrap}>
-            <span className={styles.heroTitleLine} />
-            <span className={styles.heroTitleEstablished}>Est. 2026 · Ceylon</span>
-            <span className={styles.heroTitleLine} />
-          </div>
-          <span className={styles.heroTitleVerandah}>VERANDAH</span>
+          <img src="/images/hero-logo-cropped.png" alt="Fort Verandah Logo" className={styles.heroLogoImg} />
         </div>
 
         {/* Description */}
@@ -150,6 +175,7 @@ function FeaturedRooms() {
       tag:'Signature',
       from:'From USD 180/night',
       color:'#2C3B2E',
+      img:'/images/rooms/verandah-suite.png'
     },
     {
       id:2,
@@ -158,6 +184,7 @@ function FeaturedRooms() {
       tag:'Heritage',
       from:'From USD 120/night',
       color:'#3B3020',
+      img:'/images/rooms/heritage-room.png'
     },
     {
       id:3,
@@ -166,6 +193,7 @@ function FeaturedRooms() {
       tag:'Garden',
       from:'From USD 95/night',
       color:'#2A3038',
+      img:'/images/rooms/garden-studio.png'
     },
   ];
 
@@ -188,9 +216,16 @@ function FeaturedRooms() {
               className={`reveal reveal-delay-${i+1} ${styles.roomCard}`}
               style={{'--card-color': r.color} as React.CSSProperties}
             >
-              <div className={styles.roomCardImg} style={{backgroundColor: r.color}}>
+              <div
+                className={styles.roomCardImg}
+                style={{
+                  backgroundColor: r.color,
+                  backgroundImage: `url(${r.img})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
                 <span className={styles.roomTag}>{r.tag}</span>
-                <div className={styles.roomCardPattern} />
               </div>
               <div className={styles.roomCardBody}>
                 <h3 className={`heading-sm color-sand`}>{r.title}</h3>
@@ -263,11 +298,11 @@ function BistroFeature() {
 /* ---------- Gallery Strip ---------- */
 function GalleryStrip() {
   const items = [
-    {label:'Architecture', color:'#2C3B2E'},
-    {label:'Interiors',    color:'#3B3020'},
-    {label:'The Bistro',   color:'#2A3038'},
-    {label:'Lifestyle',    color:'#2C2D26'},
-    {label:'Galle Fort',   color:'#1E2A20'},
+    {label:'Architecture', color:'#2C3B2E', bg: '/images/gallery/architecture-1.png'},
+    {label:'Interiors',    color:'#3B3020', bg: '/images/gallery/interiors-1.png'},
+    {label:'The Bistro',   color:'#2A3038', bg: '/images/bistro/bistro-main.png'},
+    {label:'Lifestyle',    color:'#2C2D26', bg: '/images/gallery/lifestyle-1.png'},
+    {label:'Galle Fort',   color:'#1E2A20', bg: '/images/about/galle-fort.png'},
   ];
   return (
     <section className={styles.galleryStrip}>
@@ -285,7 +320,7 @@ function GalleryStrip() {
           <div
             key={item.label}
             className={`reveal reveal-delay-${Math.min(i+1,4)} ${styles.galleryItem}`}
-            style={{backgroundColor: item.color}}
+            style={{backgroundColor: item.color, backgroundImage: `url(${item.bg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
           >
             <div className={styles.galleryItemOverlay} />
             <div className={styles.galleryItemLabel}>

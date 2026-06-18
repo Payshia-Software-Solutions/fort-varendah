@@ -42,19 +42,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
           <span className={styles.logoIcon}>
-            <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="38">
-              <rect x="6" y="2" width="36" height="46" rx="3" stroke="currentColor" strokeWidth="1.5"/>
-              <rect x="10" y="6" width="28" height="38" rx="2" stroke="currentColor" strokeWidth="1"/>
-              <line x1="24" y1="6" x2="24" y2="44" stroke="currentColor" strokeWidth="0.8"/>
-              <line x1="10" y1="28" x2="38" y2="28" stroke="currentColor" strokeWidth="0.8"/>
-              <rect x="16" y="32" width="16" height="12" rx="1" stroke="currentColor" strokeWidth="1"/>
-              <text x="24" y="22" textAnchor="middle" fontSize="10" fontFamily="Georgia,serif" fill="currentColor" fontWeight="600">F</text>
-              <text x="24" y="52" textAnchor="middle" fontSize="7" fontFamily="Georgia,serif" fill="currentColor">V</text>
-            </svg>
+            <img src="/images/nav-icon-cropped.png" alt="Icon" className={styles.navIconImg} />
           </span>
           <span className={styles.logoText}>
-            <span className={styles.logoBrand}>FORT VERANDAH</span>
-            <span className={styles.logoSub}>BOUTIQUE RESIDENCE &amp; BISTRO</span>
+            <img src="/images/nav-text-cropped.png" alt="Fort Verandah" className={styles.navTextImg} />
           </span>
         </Link>
 

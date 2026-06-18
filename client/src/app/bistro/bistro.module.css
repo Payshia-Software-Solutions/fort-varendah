@@ -1,11 +1,20 @@
 .banner {
   position: relative;
   min-height: 65vh;
-  background: linear-gradient(135deg, #3B3020, #2C2D26, #1a1a14);
+  background-image: url('/images/banners/bistro-banner.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: flex-end;
   padding-bottom: var(--space-lg);
   overflow: hidden;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,22,16,0.95) 0%, rgba(30,42,32,0.4) 60%, transparent 100%);
 }
 
 .bannerOverlay {

@@ -46,20 +46,17 @@
   line-height: 1.2;
 }
 
-.logoBrand {
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-sand);
+.navIconImg {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
 }
 
-.logoSub {
-  font-family: var(--font-ui);
-  font-size: 0.5rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-ochre);
+.navTextImg {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+  margin-top: 2px;
 }
 
 /* ── Desktop Nav ── */

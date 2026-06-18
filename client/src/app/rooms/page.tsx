@@ -15,6 +15,7 @@ const rooms = [
     desc: 'Our flagship suite, perched with views of the Galle Fort walls. Features a private verandah, handcrafted teak furniture, and a standalone soaking tub. The ultimate expression of Fort Verandah\'s identity.',
     amenities: ['Private Verandah','King Bed','Soaking Tub','Heritage Minibar','Air Conditioning','Fort Wall Views'],
     color: '#2C3B2E',
+    img: '/images/rooms/verandah-suite.png'
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const rooms = [
     desc: 'Steeped in colonial character, this room features arched doorways, wooden shutters, and locally sourced artisan pieces. A deeply curated space that tells the story of Galle.',
     amenities: ['King Bed','Arched Doorways','Wooden Shutters','Rain Shower','Air Conditioning','Courtyard View'],
     color: '#3B3020',
+    img: '/images/rooms/heritage-room.png'
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const rooms = [
     desc: 'A serene studio opening onto our private tropical courtyard. Sunlight, lush greenery and morning birdsong make this the perfect writer\'s retreat.',
     amenities: ['Queen Bed','Private Garden Access','Outdoor Shower','Writing Desk','Air Conditioning','Tropical Garden View'],
     color: '#2A3038',
+    img: '/images/rooms/garden-studio.png'
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const rooms = [
     desc: 'Elegantly appointed with all the comforts of Fort Verandah — clean lines, curated art, and warm textiles in our signature palette.',
     amenities: ['Queen Bed','Heritage Art','Premium Linens','Ensuite Bathroom','Air Conditioning','Garden View'],
     color: '#1E2A20',
+    img: '/images/rooms/fort-view-room.png'
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ const rooms = [
     desc: 'A bi-level retreat with exposed timber beams and a mezzanine sleeping area. Perfect for longer stays — with a dedicated workspace and a private plunge pool.',
     amenities: ['Mezzanine Bedroom','Private Plunge Pool','Workspace','Kitchenette','Air Conditioning','Panoramic Views'],
     color: '#2C2D26',
+    img: '/images/gallery/interiors-1.png'
   },
   {
     id: 6,
@@ -65,6 +70,7 @@ const rooms = [
     desc: 'Step directly into our sun-dappled courtyard from this ground-floor room. Colonial tile floors and handwoven cushions create an atmosphere of effortless calm.',
     amenities: ['King Bed','Courtyard Access','Colonial Tile Floors','Rain Shower','Air Conditioning','Courtyard View'],
     color: '#3a3028',
+    img: '/images/gallery/lifestyle-1.png'
   },
 ];
 
@@ -93,12 +99,16 @@ export default function RoomsPage() {
               key={room.id}
               className={`${styles.roomRow} ${i % 2 !== 0 ? styles.roomRowReverse : ''}`}
             >
-              {/* Image placeholder */}
+              {/* Image */}
               <div
                 className={`reveal-left ${styles.roomImg}`}
-                style={{backgroundColor: room.color}}
+                style={{
+                  backgroundColor: room.color,
+                  backgroundImage: `url(${room.img})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
-                <div className={styles.roomImgPattern} />
                 <div className={styles.roomImgTag}>
                   <span className="subheading color-ochre">{room.tag}</span>
                 </div>
