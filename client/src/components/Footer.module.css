@@ -1,0 +1,189 @@
+.footer {
+  background-color: var(--color-night-forest);
+  color: var(--color-sand);
+}
+
+.topBar {
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid rgba(242, 229, 217, 0.1);
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+/* Brand column */
+.footerBrand {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--color-sand);
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-ochre);
+}
+
+/* Nav/Info columns */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.colTitle {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-ochre);
+  margin-bottom: 0.75rem;
+}
+
+.footerLink {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: rgba(242, 229, 217, 0.7);
+  transition: color var(--transition-fast);
+  letter-spacing: 0.02em;
+}
+
+.footerLink:hover {
+  color: var(--color-sand);
+}
+
+.footerText {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: rgba(242, 229, 217, 0.7);
+  letter-spacing: 0.02em;
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(242, 229, 217, 0.2);
+  color: rgba(242, 229, 217, 0.6);
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+  border-color: var(--color-ochre);
+  color: var(--color-ochre);
+  transform: translateY(-2px);
+}
+
+/* Hours */
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.hourRow {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(242, 229, 217, 0.08);
+}
+
+.hourDay {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: rgba(242, 229, 217, 0.6);
+}
+
+.hourTime {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-sand);
+  font-weight: 500;
+}
+
+.bookCta {
+  margin-top: auto;
+}
+
+/* Bottom bar */
+.bottomBar {
+  padding: 1.5rem 0;
+}
+
+.bottomInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright,
+.credit {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: rgba(242, 229, 217, 0.4);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .topGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .topBar {
+    padding: var(--space-lg) 0;
+  }
+
+  .topGrid {
+    gap: 2rem;
+  }
+
+  .footerBrand {
+    font-size: 2.25rem;
+  }
+
+  .bookCta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .socials {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,127 @@
+.banner {
+  position: relative;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #2A3038, #2C3B2E, #1a2118);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: var(--space-lg);
+  overflow: hidden;
+}
+
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 30%, rgba(198,150,79,0.08) 0%, transparent 60%);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 2;
+  padding-top: 10rem;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.filterBtn {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(44,45,38,0.2);
+  color: var(--color-warm-grey);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  background: transparent;
+}
+
+.filterBtn:hover {
+  border-color: var(--color-deep-moss);
+  color: var(--color-deep-moss);
+}
+
+.filterActive {
+  background-color: var(--color-deep-moss) !important;
+  color: var(--color-sand) !important;
+  border-color: var(--color-deep-moss) !important;
+}
+
+.galleryMasonry {
+  columns: 4;
+  column-gap: 1rem;
+}
+
+.galleryCard {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.galleryCard:hover .cardOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.size_normal { height: 220px; }
+.size_large  { height: 320px; }
+.size_tall   { height: 400px; }
+
+.cardPattern {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 18px,
+    rgba(242,229,217,0.03) 18px, rgba(242,229,217,0.03) 19px
+  );
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cardLabel {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--color-sand);
+}
+
+@media (max-width: 1024px) {
+  .galleryMasonry { columns: 3; }
+}
+
+@media (max-width: 768px) {
+  .bannerContent  { padding-top: 7rem; }
+  .galleryMasonry { columns: 2; }
+  .size_large, .size_tall { height: 220px; }
+  .size_normal { height: 170px; }
+  .filters     { gap: 0.4rem; }
+  .filterBtn   { padding: 0.5rem 1rem; font-size: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .bannerContent  { padding-top: 6rem; }
+  .galleryMasonry { columns: 2; column-gap: 0.5rem; }
+  .size_large, .size_tall { height: 180px; }
+  .size_normal { height: 140px; }
+  .galleryCard { margin-bottom: 0.5rem; }
+}
+

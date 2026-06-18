@@ -1,0 +1,141 @@
+.banner {
+  position: relative;
+  min-height: 65vh;
+  background: linear-gradient(135deg, #3B3020, #2C2D26, #1a1a14);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: var(--space-lg);
+  overflow: hidden;
+}
+
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(198,150,79,0.1) 0%, transparent 60%);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 2;
+  padding-top: 10rem;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.hours {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(44,45,38,0.1);
+}
+
+.hourItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(44,45,38,0.1);
+}
+
+.hourLabel {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-warm-grey);
+}
+
+.hourTime {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--color-deep-moss);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: var(--space-lg);
+  border: 1px solid rgba(242,229,217,0.1);
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242,229,217,0.4);
+  border-right: 1px solid rgba(242,229,217,0.1);
+  transition: all var(--transition-base);
+  background: transparent;
+  cursor: pointer;
+}
+
+.tab:last-child { border-right: none; }
+
+.tab:hover { color: var(--color-sand); background: rgba(255,255,255,0.04); }
+
+.tabActive {
+  background-color: var(--color-ochre) !important;
+  color: var(--color-white) !important;
+}
+
+/* Menu grid */
+.menuGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.menuItem {
+  padding: 2rem;
+  border: 1px solid rgba(242,229,217,0.06);
+  background: rgba(255,255,255,0.02);
+  transition: background var(--transition-fast);
+}
+
+.menuItem:hover { background: rgba(255,255,255,0.04); }
+
+.menuItemTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.menuPrice {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-ochre);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 1024px) {
+  .introGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .tabs      { flex-wrap: wrap; }
+  .tab       { flex: none; padding: 0.75rem 1.25rem; }
+}
+
+@media (max-width: 768px) {
+  .bannerContent { padding-top: 7rem; }
+  .menuGrid      { grid-template-columns: 1fr; }
+  .tabs          { border: none; gap: 0.5rem; }
+  .tab           { border: 1px solid rgba(242,229,217,0.15) !important; padding: 0.6rem 1rem; }
+  .hours         { margin-top: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .bannerContent { padding-top: 6rem; }
+  .tab           { font-size: 0.6rem; padding: 0.5rem 0.75rem; }
+  .menuItem      { padding: 1.25rem; }
+  .menuItemTop   { flex-direction: column; gap: 0.25rem; }
+}
+
